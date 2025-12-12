@@ -1,51 +1,57 @@
 
-# <p align="center"><img src="https://readme-typing-svg.herokuapp.com?size=32&duration=3500&color=F776D6&center=true&vCenter=true&width=900&lines=Cats+vs+Dogs+Image+Classifier+%F0%9F%90%B1%E2%9D%A4%EF%B8%8F%F0%9F%90%B6;Convolutional+Neural+Network+Using+TensorFlow+%F0%9F%A4%96;Deep+Learning+Project+Showcase+%F0%9F%8E%89" /></p>
-
----
+# 🐱🐶 **Cats vs Dogs Image Classifier**
 
 <p align="center">
-  <img src="https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif" width="200" />
-  &nbsp;&nbsp;
-  <img src="https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif" width="200" />
-</p>
-
-<p align="center">
-  <b>A Deep Learning CNN that classifies images as Cat 🐱 or Dog 🐶</b><br>
-  Built using TensorFlow, Keras, and Google Colab.
+  <img src="https://readme-typing-svg.herokuapp.com?size=32&duration=3500&color=FF7DD1&center=true&vCenter=true&width=900&lines=Cats+vs+Dogs+Classifier+%F0%9F%90%B1+%E2%9D%A4%EF%B8%8F+%F0%9F%90%B6;A+Deep+Learning+CNN+Project;Built+Using+TensorFlow+%26+Keras" />
 </p>
 
 ---
 
-## <p align="center">✨ **Project Badges**</p>
+<p align="center">
+  <img src="https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif" width="180">
+  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" width="180">
+  <img src="https://media.giphy.com/media/11s7Ke7jcNxCHS/giphy.gif" width="180">
+</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/STATUS-COMPLETE-brightgreen?style=for-the-badge&logo=vercel&logoColor=white"/>
+  <b>A cute yet powerful CNN that classifies images as Cat 🐱 or Dog 🐶.</b><br>
+  Built end-to-end in Google Colab.
+</p>
+
+---
+
+## <p align="center">✨ **Badges**</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-Complete-00C853?style=for-the-badge&logo=checkmarx&logoColor=white"/>
   <img src="https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
   <img src="https://img.shields.io/badge/Google%20Colab-Active-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white"/>
   <img src="https://img.shields.io/badge/Model-CNN-blueviolet?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Accuracy-High-00C853?style=for-the-badge&logo=databricks&logoColor=white"/>
 </p>
 
 ---
 
 # 🧠 **Overview**
 
-This project builds a **Convolutional Neural Network (CNN)** to classify whether an input image contains a **cat** or a **dog**.
-It covers an end-to-end machine learning workflow:
+This deep learning project builds a **CNN model** to classify images into two categories:
 
-* 📥 Data loading & preprocessing
-* 🧹 Normalization
-* 🏗 CNN model creation
-* 🎯 Training & validation
-* 📊 Confusion matrix
-* 🔮 Prediction on uploaded images
+* 🐱 **Cat**
+* 🐶 **Dog**
+
+It includes:
+
+* Data loading
+* Preprocessing
+* CNN architecture
+* Training
+* Prediction on uploaded images
 
 ---
 
-# 🌈 **Aesthetic Animated Section Divider**
+# 🎨 **Pixel Art Animal Divider**
 
 <p align="center">
-  <img src="https://i.imgur.com/EB4s1C8.gif" width="700"/>
+  <img src="https://i.imgur.com/qk4d7Yx.png" width="500">
 </p>
 
 ---
@@ -68,20 +74,38 @@ Images are automatically labeled based on folder names.
 
 ---
 
-# 🚀 **Model Architecture (CNN)**
+# 🧹 **Preprocessing Pipeline**
+
+### 🔹 Load Dataset
+
+```python
+train_ds = keras.utils.image_dataset_from_directory(
+    directory=train_path,
+    labels='inferred',
+    label_mode='int',
+    batch_size=32,
+    image_size=(256,256)
+)
+```
+
+### 🔹 Normalize
+
+```python
+def process(image, label):
+    return tf.cast(image / 255., tf.float32), label
+
+train_ds = train_ds.map(process)
+test_ds = test_ds.map(process)
+```
+
+---
+
+# 🧱 **Model Architecture (CNN)**
 
 <p align="center">
-<img src="https://media.giphy.com/media/QTfX9Ejfra3ZmNxh6B/giphy.gif" width="300">
+  <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif" width="160"><br>
+  <b>Convolution → BatchNorm → Pool → Dense → Sigmoid</b>
 </p>
-
-### **Layers Used**
-
-* Convolution (Conv2D)
-* Batch Normalization
-* MaxPooling
-* Dense Layers
-* Dropout
-* Sigmoid Output
 
 ```python
 model = keras.Sequential([
@@ -106,34 +130,25 @@ model = keras.Sequential([
 
 ---
 
-# ⚙️ **Training Results**
-
-<p align="center">
-  <img src="https://media.giphy.com/media/VgE1Q5o0GyrY0/giphy.gif" width="400">
-</p>
-
-The model is trained for 10 epochs with validation monitoring.
-
----
-
-# 📊 **Confusion Matrix**
-
-<p align="center">
-<img src="https://i.imgur.com/ZQJH3LO.gif" width="450">
-</p>
-
-Generated using:
+# 🚀 **Training**
 
 ```python
-cm = confusion_matrix(y_true, y_pred)
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+history = model.fit(train_ds, epochs=10, validation_data=test_ds)
 ```
+
+This outputs:
+
+* Training accuracy
+* Validation accuracy
+* Loss curves
 
 ---
 
-# 🔮 **Prediction on Uploaded Images**
+# 🐾 **Predicting on Uploaded Images**
 
-Upload any image (cat/dog) and the model predicts using:
+Upload any **normal real-life image**, and the model will classify it.
+
+### Preprocess & predict:
 
 ```python
 img = tf.keras.utils.load_img(img_path, target_size=(256,256))
@@ -142,32 +157,35 @@ img_array = np.expand_dims(img_array, 0)
 prediction = model.predict(img_array)[0][0]
 ```
 
+### Output:
+
+```python
+if prediction > 0.5:
+    print("Dog 🐶")
+else:
+    print("Cat 🐱")
+```
+
 ---
 
-# ✨ **Final Output Example**
+# 🐱💬 Pixel-Art Ending Banner
 
 <p align="center">
-  <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif" width="250">
+  <img src="https://i.imgur.com/eVHu1xE.gif" width="300">
 </p>
-
-```
-Prediction: 🐱 Cat (0)  or  🐶 Dog (1)
-```
 
 ---
 
 # 🌟 **Future Enhancements**
 
-* Use **EfficientNet / MobileNet** (Transfer Learning)
-* Add **data augmentation**
-* Deploy model using **Streamlit** or **Flask**
-* Add **Grad-CAM visualization**
+* Add data augmentation
+* Use EfficientNet / MobileNet
+* Deploy using Streamlit
+* Add Grad-CAM heatmaps
 
 ---
 
-# 💖 **Credits**
+# 💖 **Author**
 
 Made with ❤️ by **Namita Narang**
-If you want a **PPT**, **project report**, or **aesthetic diagrams**, I can generate everything!
 
----
