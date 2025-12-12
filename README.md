@@ -1,44 +1,56 @@
-# 🐱🐶 **Cats vs Dogs Image Classifier**
+
+# <p align="center"><img src="https://readme-typing-svg.herokuapp.com?size=32&duration=3500&color=F776D6&center=true&vCenter=true&width=900&lines=Cats+vs+Dogs+Image+Classifier+%F0%9F%90%B1%E2%9D%A4%EF%B8%8F%F0%9F%90%B6;Convolutional+Neural+Network+Using+TensorFlow+%F0%9F%A4%96;Deep+Learning+Project+Showcase+%F0%9F%8E%89" /></p>
+
+---
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg" height="120"/>
+  <img src="https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif" width="200" />
   &nbsp;&nbsp;
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/RedDog.jpg" height="120"/>
+  <img src="https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif" width="200" />
 </p>
 
 <p align="center">
-  <b>A Deep Learning CNN built with TensorFlow & Keras.</b><br>
-  Classifies images as <b>Cat</b> 🐱 or <b>Dog</b> 🐶 with high accuracy.
+  <b>A Deep Learning CNN that classifies images as Cat 🐱 or Dog 🐶</b><br>
+  Built using TensorFlow, Keras, and Google Colab.
 </p>
 
 ---
 
-## 🎯 **Project Status**
+## <p align="center">✨ **Project Badges**</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Project-Complete-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Model-CNN-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge&logo=TensorFlow"/>
-  <img src="https://img.shields.io/badge/Google%20Colab-Working-yellow?style=for-the-badge&logo=googlecolab"/>
+  <img src="https://img.shields.io/badge/STATUS-COMPLETE-brightgreen?style=for-the-badge&logo=vercel&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google%20Colab-Active-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Model-CNN-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Accuracy-High-00C853?style=for-the-badge&logo=databricks&logoColor=white"/>
 </p>
 
 ---
 
-## 🧠 **Overview**
+# 🧠 **Overview**
 
-This project builds a **Convolutional Neural Network (CNN)** to classify images of **cats and dogs**.
-Implemented end-to-end in **Google Colab**, the model handles:
+This project builds a **Convolutional Neural Network (CNN)** to classify whether an input image contains a **cat** or a **dog**.
+It covers an end-to-end machine learning workflow:
 
-✔ Dataset loading from Google Drive
-✔ Preprocessing & normalization
-✔ CNN model building
-✔ Training & validation
-✔ Confusion matrix evaluation
-✔ Predicting real images (user uploaded)
+* 📥 Data loading & preprocessing
+* 🧹 Normalization
+* 🏗 CNN model creation
+* 🎯 Training & validation
+* 📊 Confusion matrix
+* 🔮 Prediction on uploaded images
 
 ---
 
-## 📂 **Dataset Structure**
+# 🌈 **Aesthetic Animated Section Divider**
+
+<p align="center">
+  <img src="https://i.imgur.com/EB4s1C8.gif" width="700"/>
+</p>
+
+---
+
+# 📂 **Dataset Structure**
 
 ```
 CatsVsDog/
@@ -56,39 +68,20 @@ Images are automatically labeled based on folder names.
 
 ---
 
-## 🧹 **Data Preprocessing**
-
-### 🔹 Load Dataset
-
-```python
-train_ds = keras.utils.image_dataset_from_directory(
-    directory=train_path,
-    labels='inferred',
-    label_mode='int',
-    batch_size=32,
-    image_size=(256,256)
-)
-```
-
-### 🔹 Normalize
-
-```python
-def process(image, label):
-    return tf.cast(image / 255., tf.float32), label
-
-train_ds = train_ds.map(process)
-test_ds = test_ds.map(process)
-```
-
----
-
-## 🧠 **Model Architecture**
+# 🚀 **Model Architecture (CNN)**
 
 <p align="center">
-  <img src="https://miro.medium.com/v2/resize:fit:800/1*U7ZdfZI5LvqfKmQYzfoalA.png" width="550"/>
+<img src="https://media.giphy.com/media/QTfX9Ejfra3ZmNxh6B/giphy.gif" width="300">
 </p>
 
-### 🏗 CNN Model
+### **Layers Used**
+
+* Convolution (Conv2D)
+* Batch Normalization
+* MaxPooling
+* Dense Layers
+* Dropout
+* Sigmoid Output
 
 ```python
 model = keras.Sequential([
@@ -111,36 +104,22 @@ model = keras.Sequential([
 ])
 ```
 
-### ⚙ Compile
-
-```python
-model.compile(
-    optimizer='adam',
-    loss='binary_crossentropy',
-    metrics=['accuracy']
-)
-```
-
 ---
 
-## 📈 **Training**
-
-```python
-history = model.fit(train_ds, epochs=10, validation_data=test_ds)
-```
-
-Outputs:
-
-* Training accuracy
-* Validation accuracy
-* Loss curves
-
----
-
-## 📊 **Confusion Matrix**
+# ⚙️ **Training Results**
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/74038190/212550021-3483c1e9-ecde-4e6a-a58c-6da52e7ad5f5.png" width="450"/>
+  <img src="https://media.giphy.com/media/VgE1Q5o0GyrY0/giphy.gif" width="400">
+</p>
+
+The model is trained for 10 epochs with validation monitoring.
+
+---
+
+# 📊 **Confusion Matrix**
+
+<p align="center">
+<img src="https://i.imgur.com/ZQJH3LO.gif" width="450">
 </p>
 
 Generated using:
@@ -152,58 +131,43 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
 
 ---
 
-## 🔮 **Predict on Uploaded Image**
+# 🔮 **Prediction on Uploaded Images**
 
-<p align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" height="140"/>
-</p>
-
-### Steps:
+Upload any image (cat/dog) and the model predicts using:
 
 ```python
 img = tf.keras.utils.load_img(img_path, target_size=(256,256))
 img_array = tf.keras.utils.img_to_array(img) / 255.0
-img_array = np.expand_dims(img_array, axis=0)
+img_array = np.expand_dims(img_array, 0)
 prediction = model.predict(img_array)[0][0]
 ```
 
-### Prediction Logic:
+---
 
-```python
-if prediction > 0.5:
-    print("Dog 🐶")
-else:
-    print("Cat 🐱")
+# ✨ **Final Output Example**
+
+<p align="center">
+  <img src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif" width="250">
+</p>
+
+```
+Prediction: 🐱 Cat (0)  or  🐶 Dog (1)
 ```
 
 ---
 
-## 🚀 **Future Enhancements**
+# 🌟 **Future Enhancements**
 
-* Add data augmentation
-* Use EfficientNet / MobileNet (Transfer Learning)
-* Add learning rate scheduler
-* Save and deploy model using Streamlit or Flask
-* Build a web UI for uploading images
-
----
-
-## 🏁 **Conclusion**
-
-This project demonstrates how to:
-
-✔ Build a CNN from scratch
-✔ Handle image preprocessing
-✔ Train on a real dataset
-✔ Evaluate with a confusion matrix
-✔ Make predictions on normal uploaded images
-
-A great beginner-friendly introduction to deep learning and computer vision!
+* Use **EfficientNet / MobileNet** (Transfer Learning)
+* Add **data augmentation**
+* Deploy model using **Streamlit** or **Flask**
+* Add **Grad-CAM visualization**
 
 ---
 
-## 💙 **Author**
+# 💖 **Credits**
 
-Made by **Namita Narang**
-If you want a **PPT, project report, or deployment code**, just let me know!
+Made with ❤️ by **Namita Narang**
+If you want a **PPT**, **project report**, or **aesthetic diagrams**, I can generate everything!
 
+---
