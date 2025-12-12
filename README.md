@@ -5,7 +5,6 @@
 ---
 
 <p align="center">
-  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif" width="200"/>
   <img src="https://media.giphy.com/media/WXB88TeARFVvi/giphy.gif" width="200"/>
   <img src="https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif" width="200"/>
 </p>
@@ -26,15 +25,7 @@
   <img src="https://img.shields.io/badge/Model-CNN-blueviolet?style=for-the-badge"/>
 </p>
 
----
 
-# 🌈 **AESTHETIC BANNER**
-
-<p align="center">
-  <img src="https://i.imgur.com/Ou6gY2z.gif" width="800" />
-</p>
-
----
 
 # 🧠 **Overview**
 
@@ -70,14 +61,6 @@ CatsVsDog/
 ```
 
 Folder names → automatic labels (0 = Cat, 1 = Dog)
-
----
-
-# 🎨 **AESTHETIC SECTION DIVIDER**
-
-<p align="center">
-  <img src="https://i.imgur.com/EB4s1C8.gif" width="700">
-</p>
 
 ---
 
@@ -172,9 +155,6 @@ else:
     print("Cat 🐱")
 ```
 
----
-
-# 🐱✨ Aesthetic Ending Banner
 
 <p align="center">
   <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300">
